@@ -2,6 +2,8 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
+import LeftArea from './LeftArea';
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
             <Stack sx ={{width: "auto", height: "100%"}}spacing={2} direction={"row"}>
               {/* 横方向に分割 */}
               <Paper elevation={3} sx = {{flex: 1, textAlign: 'center',fontSize: '40px',width: "100%", height: "100%", backgroundColor: 'white', boxShadow: 3}}>
-                LeftArea
+                <LeftArea />
               </Paper>
               <Paper elevation={3} sx = {{flex: 3, textAlign: 'center',fontSize: '40px',width: "100%", height: "100%", backgroundColor: 'white', boxShadow: 3}}>
                 Right Area
