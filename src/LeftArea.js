@@ -5,10 +5,9 @@ import Stack from '@mui/material/Stack';
 
 
 import { useAtom } from 'jotai';
-import { atom } from 'jotai'
+import { PromptAtom, ResponseAtom } from './openai_atoms';
 
-const PromptAtom = atom('');
-const ResponseAtom = atom('');
+import OpenAIArea from './openai_Area';
 
 const LeftArea = () => {
     const [prompt, setPrompt] = useAtom(PromptAtom);
@@ -26,6 +25,7 @@ const LeftArea = () => {
             onChange={(e) => setPrompt(e.target.value)}
         />
 
+        <OpenAIArea />
 
         <TextField 
             sx={{ width: '90%' }} 
