@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 
 
 import { useAtom } from 'jotai';
-import { PromptAtom, ResponseAtom } from './openai_atoms';
+import { PromptAtom, ResponseAtom } from './openaiatoms';
 
 const LeftArea = () => {
     const [prompt, setPrompt] = useAtom(PromptAtom);
