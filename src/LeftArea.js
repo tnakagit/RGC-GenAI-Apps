@@ -25,6 +25,7 @@ const LeftArea = () => {
         />
 
         <OpenAIArea />
+
         <TextField 
             sx={{ width: '90%' }} 
             id="output" 
