@@ -7,8 +7,8 @@ import Stack from '@mui/material/Stack';
 import { useAtom } from 'jotai';
 import { atom } from 'jotai'
 
-export const PromptAtom = atom('');
-export const ResponseAtom = atom('');
+const PromptAtom = atom('');
+const ResponseAtom = atom('');
 
 const LeftArea = () => {
     const [prompt, setPrompt] = useAtom(PromptAtom);
