@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
-import OpenAIArea from './openai_Area';
 
 import { useAtom } from 'jotai';
 import { PromptAtom, ResponseAtom } from './openai_atoms';
@@ -24,7 +23,6 @@ const LeftArea = () => {
             onChange={(e) => setPrompt(e.target.value)}
         />
 
-        <OpenAIArea />
 
         <TextField 
             sx={{ width: '90%' }} 
