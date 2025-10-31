@@ -28,7 +28,7 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
         # 送信するデータ
         payload = {
             "model": "gpt-4.1-2025-04-14",
-            "input": "ここにpromptを入れる"  # prompt変数を適宜設定
+            "input": prompt
         }
 
         # ヘッダー

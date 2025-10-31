@@ -39,10 +39,16 @@ const OpenAIArea = () => {
         // } finally {
         //     setLoading(false); // スピナー非表示
         // }
-            const response = await fetch("api/http_trigger")
+            const response = await fetch("api/http_trigger"
+                , {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ prompt })
+                })
+
                 .then((res) => res.json())
                 .then((json) => {
-                    setResponse(json);
+                    setResponse(json.data);
                 })
                 .catch((error) => {
                     setResponse('エラーが発生しました: ' + error.message);
