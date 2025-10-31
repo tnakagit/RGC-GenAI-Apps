@@ -50,7 +50,7 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
             return func.HttpResponse(
                 json.dumps({"error":f"Error: {response.status_code}, {response.text}"}),
                 mimetype="application/json",
-                status_code=200
+                status_code=500
             )
     else:
         return func.HttpResponse(
