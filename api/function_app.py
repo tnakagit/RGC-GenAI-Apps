@@ -11,7 +11,7 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     prompt = req.params.get('prompt')
-    if not name:
+    if not prompt:
         try:
             req_body = req.get_json()
         except ValueError:
