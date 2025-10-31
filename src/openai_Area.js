@@ -40,7 +40,7 @@ const OpenAIArea = () => {
         //     setLoading(false); // スピナー非表示
         // }
             const response = await fetch("api/http_trigger")
-                .then((res) => res.text())
+                .then((res) => res.json())
                 .then((json) => {
                     setResponse(json);
                 })
