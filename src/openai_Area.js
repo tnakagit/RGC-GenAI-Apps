@@ -17,25 +17,36 @@ const OpenAIArea = () => {
         setLoading(true); // スピナー表示開始
         setResponse('');  // 前回の結果をクリア
         try {        
-            const response = await axios.post(
-                // 環境変数AZURE_OPENAI_ENDPOINTを使う(後ろに/openai/v1/responsesをつける)
-                process.env.REACT_APP_AZURE_OPENAI_ENDPOINT + 'openai/v1/responses',
-                {
-                    model: 'gpt-4.1-2025-04-14',
-                    input: prompt,
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'api-key': process.env.REACT_APP_AZURE_OPENAI_API_KEY,
-                    },
-                }
-            );
-            setResponse(response.data.output[0].content[0].text);
+        //     const response = await axios.post(
+        //         // 環境変数AZURE_OPENAI_ENDPOINTを使う(後ろに/openai/v1/responsesをつける)
+        //         process.env.REACT_APP_AZURE_OPENAI_ENDPOINT + 'openai/v1/responses',
+        //         {
+        //             model: 'gpt-4.1-2025-04-14',
+        //             input: prompt,
+        //         },
+        //         {
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //                 'api-key': process.env.REACT_APP_AZURE_OPENAI_API_KEY,
+        //             },
+        //         }
+        //     );
+        //     setResponse(response.data.output[0].content[0].text);
             
-        } catch (error) {
-            console.error('Error creating post:', error);
-            setResponse('エラーが発生しました: ' + error.message);
+        // } catch (error) {
+        //     console.error('Error creating post:', error);
+        //     setResponse('エラーが発生しました: ' + error.message);
+        // } finally {
+        //     setLoading(false); // スピナー非表示
+        // }
+            const response = await fetch("api/http_trigger")
+                .then((res) => res.text())
+                .then((json) => {
+                    setResponse(json);
+                })
+                .catch((error) => {
+                    setResponse('エラーが発生しました: ' + error.message);
+                });
         } finally {
             setLoading(false); // スピナー非表示
         }
